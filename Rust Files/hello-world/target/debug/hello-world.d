@@ -1,0 +1,1 @@
+D:\Users\Dinopc\Documents\CC\CC\ -\ 11\ Semestre\Compiladores\#\ Compilador-Rust\Rust\ Files\hello-world\target\debug\hello-world.exe: D:\Users\Dinopc\Documents\CC\CC\ -\ 11\ Semestre\Compiladores\#\ Compilador-Rust\Rust\ Files\hello-world\src\main.rs

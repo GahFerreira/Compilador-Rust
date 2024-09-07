@@ -1,0 +1,73 @@
+Crate -> ItemList
+ItemList -> Item ItemList
+ItemList ->
+Item -> Function
+Function -> TOKEN_fn TOKEN_ID TOKEN_BRACES_OP FunctionParameters? TOKEN_BRACES_CL FunctionReturnType BlockExpression
+FunctionParameters? -> FunctionParameters
+FunctionParameters? ->
+FunctionParameters -> FunctionParam CommaParam?
+FunctionParam -> TOKEN_ID TOKEN_COLON Type
+CommaParam? -> CommaParam
+CommaParam? ->
+CommaParam -> TOKEN_COMMA FunctionParam CommaParam?
+FunctionReturnType -> TOKEN_ARROW Type
+BlockExpression -> TOKEN_CURLY_OP Statements? TOKEN_CURLY_CL
+Statements? -> Statements
+Statements? ->
+Statements -> Statement StatementList
+Statements -> ExpressionWithoutBlock
+StatementList -> Statement StatementList
+StatementList ->
+Statement -> TOKEN_SEMICOLON
+Statement -> LetStatement
+Statement -> ExpressionStatement
+LetStatement -> TOKEN_let Mut? TOKEN_ID TOKEN_COLON Type TOKEN_SEMICOLON
+Mut? -> TOKEN_mut
+Mut? ->
+ExpressionStatement -> ExpressionWithBlock
+ExpressionWithBlock -> IfExpression
+ExpressionWithBlock -> WhileExpression
+IfExpression -> TOKEN_if ExpressionWithoutBlock BlockExpression
+IfExpression -> TOKEN_if ExpressionWithoutBlock BlockExpression TOKEN_else BlockExpression
+WhileExpression -> TOKEN_while ExpressionWithoutBlock BlockExpression
+ExpressionWithoutBlock -> TOKEN_BRACES_OP ExpressionWithoutBlock TOKEN_BRACES_CL
+ExpressionWithoutBlock -> Alfa
+ExpressionWithoutBlock -> Alfa TOKEN_ASSIGN ExpressionWithoutBlock
+Alfa -> Beta
+Alfa -> Alfa TOKEN_BOOLEAN_OR Beta
+Beta -> Gama
+Beta -> Beta TOKEN_BOOLEAN_AND Gama
+Gama -> Delta
+Gama -> Delta TOKEN_EQUALS Delta
+Gama -> Delta TOKEN_GREATER Delta
+Gama -> Delta TOKEN_LESS Delta
+Gama -> Delta TOKEN_GREATER_EQUALS Delta
+Gama -> Delta TOKEN_LESS_EQUALS Delta
+Gama -> Delta TOKEN_DIFFERENCE Delta
+Delta -> Epsilon
+Delta -> Delta TOKEN_PLUS Epsilon
+Delta -> Delta TOKEN_MINUS Epsilon
+Epsilon -> Zeta
+Epsilon -> Epsilon TOKEN_STAR Zeta
+Epsilon -> Epsilon TOKEN_SLASH Zeta
+Epsilon -> Epsilon TOKEN_PERCENT Zeta
+Zeta -> Eta
+Zeta -> TOKEN_EXCLAMATION Eta
+Eta -> LiteralExpression
+Eta -> CallExpression
+Eta -> ArrayExpression
+Eta -> IndexExpression
+LiteralExpression -> TOKEN_true
+CallExpression -> TOKEN_ID TOKEN_BRACES_OP CallParams? TOKEN_BRACES_CL
+CallParams? -> CallParams
+CallParams? ->
+CallParams -> ExpressionWithoutBlock CommaAndExpression?
+CommaAndExpression? -> CommaAndExpression
+CommaAndExpression? ->
+CommaAndExpression -> TOKEN_COMMA ExpressionWithoutBlock CommaAndExpression?
+ArrayExpression -> TOKEN_BRACKET_OP ArrayElements? TOKEN_BRACKET_CL
+ArrayElements? -> ArrayElements
+ArrayElements? ->
+ArrayElements -> ExpressionWithoutBlock CommaAndExpression?
+IndexExpression -> TOKEN_ID TOKEN_BRACKET_OP ExpressionWithoutBlock TOKEN_BRACKET_CL
+Type -> TOKEN_bool
