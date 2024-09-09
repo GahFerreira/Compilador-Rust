@@ -83,11 +83,19 @@ Zeta -> Eta
 Zeta -> TOKEN_EXCLAMATION Eta
 
 Eta -> LiteralExpression
+Eta -> PathExpression
 Eta -> CallExpression
 Eta -> ArrayExpression
 Eta -> IndexExpression
 
 LiteralExpression -> TOKEN_true
+LiteralExpression -> TOKEN_false
+LiteralExpression -> TOKEN_INT_LITERAL
+LiteralExpression -> TOKEN_FLOAT_LITERAL
+LiteralExpression -> TOKEN_CHAR_LITERAL
+LiteralExpression -> TOKEN_STRING_LITERAL
+
+PathExpression -> TOKEN_ID
 
 CallExpression -> TOKEN_ID TOKEN_BRACES_OP CallParams? TOKEN_BRACES_CL
 
@@ -111,3 +119,17 @@ ArrayElements -> ExpressionWithoutBlock CommaAndExpression?
 IndexExpression -> TOKEN_ID TOKEN_BRACKET_OP ExpressionWithoutBlock TOKEN_BRACKET_CL
 
 Type -> TOKEN_bool
+Type -> TOKEN_i8
+Type -> TOKEN_i16
+Type -> TOKEN_i32
+Type -> TOKEN_i64
+Type -> TOKEN_i128
+Type -> TOKEN_u8
+Type -> TOKEN_u16
+Type -> TOKEN_u32
+Type -> TOKEN_u64
+Type -> TOKEN_u128
+Type -> TOKEN_f32
+Type -> TOKEN_f64
+Type -> TOKEN_char
+Type -> TOKEN_str

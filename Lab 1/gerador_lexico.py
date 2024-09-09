@@ -149,32 +149,32 @@ digitos = \
 # Em Rust, apesar de '_42' ser um identificador, '0x_42' é um número literal válido.
 numeros = \
 {
+  # Ponto Flutuantes - Rust dá suporte apenas para decimal
+  'FLOAT_LITERAL':
+    f'''< {adaptar('DECIMAL_FLOAT_LITERAL')} >''',
+
   # Mantissas e Expoentes
   '#DECIMAL_EXPONENT': 
     f'''("e" | "E") ("+" | "-")? ("_" | < {adaptar('DECIMAL_DIGIT')} > )*''' + 
     f'''< {adaptar('DECIMAL_DIGIT')} > ("_" | < {adaptar('DECIMAL_DIGIT')} > )*''',
 
-  # Ponto Flutuantes - Rust dá suporte apenas para decimal
-  'DECIMAL_FLOAT_LITERAL': 
+  '#DECIMAL_FLOAT_LITERAL': 
     f'''< {adaptar('DECIMAL_LITERAL')} > "." | ''' + 
     f'''< {adaptar('DECIMAL_LITERAL')} > "." < {adaptar('DECIMAL_LITERAL')} > | ''' +
     f'''< {adaptar('DECIMAL_LITERAL')} > ("." < {adaptar('DECIMAL_LITERAL')} > )? < {adaptar('DECIMAL_EXPONENT')} >''',
 
-  '#FLOAT_LITERAL':
-    f'''< {adaptar('DECIMAL_FLOAT_LITERAL')} >''',
-
   # Números Inteiros
-  'BINARY_LITERAL': f'''"0" ("b" | "B") ("_" | < {adaptar('BINARY_DIGIT')} > )*''',
-
-  'OCTAL_LITERAL': f'''"0" ("o" | "O")? ("_" | < {adaptar('OCTAL_DIGIT')} > )*''',
-
-  'DECIMAL_LITERAL': f'''"0" | ( ["1"-"9"] ("_" | < {adaptar('DECIMAL_DIGIT')} > )* )''',
-
-  'HEX_LITERAL': f'''"0" ("x" | "X") ("_" | < {adaptar('HEX_DIGIT')} > )* ''',
-
-  '#INT_LITERAL': 
+  'INT_LITERAL': 
     f'''< {adaptar('BINARY_LITERAL')} > | < {adaptar('OCTAL_LITERAL')} > | ''' +
     f'''< {adaptar('DECIMAL_LITERAL')} > | < {adaptar('HEX_LITERAL')} >''',
+
+  '#BINARY_LITERAL': f'''"0" ("b" | "B") ("_" | < {adaptar('BINARY_DIGIT')} > )*''',
+
+  '#OCTAL_LITERAL': f'''"0" ("o" | "O")? ("_" | < {adaptar('OCTAL_DIGIT')} > )*''',
+
+  '#DECIMAL_LITERAL': f'''"0" | ( ["1"-"9"] ("_" | < {adaptar('DECIMAL_DIGIT')} > )* )''',
+
+  '#HEX_LITERAL': f'''"0" ("x" | "X") ("_" | < {adaptar('HEX_DIGIT')} > )* ''',
 }
 
 strings = \

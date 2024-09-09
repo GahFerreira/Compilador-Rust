@@ -18,7 +18,7 @@ fn main() {
     // You can manipulate expressions more easily with block comments
     // than with line comments. Try deleting the comment delimiters
     // to change the result:
-    let x : i32 = 5 + /* 90 + */ 5_123_2_____3_____________________;
+    let x : i32 = 5 + 0o5 + 0b1 + 42.2 + /* 90 + */ 5_123_2_____3_____________________;
     println!("Is `x` 10 or 100? x = {}", x);
     
     println!("lol")
