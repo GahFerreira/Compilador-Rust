@@ -112,14 +112,14 @@ operadores = \
 
   'ASSIGN': '"="',
 
-  'OPEN_PARENTHESIS': '"("',
-  'CLOSE_PARENTHESIS': '")"',
+  'PARENTHESIS_OP': '"("',
+  'PARENTHESIS_CL': '")"',
 
-  'OPEN_BRACKET': '"["',
-  'CLOSE_BRACKET': '"]"',
+  'BRACKET_OP': '"["',
+  'BRACKET_CL': '"]"',
 
-  'OPEN_BRACE': '"{"',
-  'CLOSE_BRACE': '"}"',
+  'CURLY_OP': '"{"',
+  'CURLY_CL': '"}"',
 
   'QUESTION': '"?"',
   'AT': '"@"',
