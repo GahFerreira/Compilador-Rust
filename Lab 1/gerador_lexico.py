@@ -1,4 +1,4 @@
-# Programa para gerar código em JavaCC de reconhecimento léxico da linguagem Go.
+# Programa para gerar código em JavaCC de reconhecimento léxico da linguagem Rust.
 
 nome_da_classe = 'Compilador'
 prefixo_token = 'TOKEN_'
