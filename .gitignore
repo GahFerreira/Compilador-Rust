@@ -3,6 +3,5 @@
 **/**.exe
 **/**.bat
 **/**.out
-**/**.site
 **/**.class
 **/**.rlib
