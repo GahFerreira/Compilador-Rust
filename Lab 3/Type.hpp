@@ -8,6 +8,6 @@ using namespace std;
 class Type 
 {
 public:
-  string tipo;
+  string nome;
   static Type* extrai_Type(No_arv_parse* no);
 };
