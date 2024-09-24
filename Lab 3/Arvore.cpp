@@ -12,25 +12,25 @@ No_arv_parse::No_arv_parse() {
 
 void debug_inicio_no(No_arv_parse * no) {
   if (no == NULL) {
-    cerr << "[NO_NULO]";
+    cout << "[NO_NULO]";
     return;
   }
-  cerr << "[" <<no->simb<<","<< no->regra << ","<<no->dado_extra << ":";
+  cout << "[" <<no->simb<<","<< no->regra << ","<<no->dado_extra << ":";
 }
 
 void debug_no_tab3(No_arv_parse *no, int tab) {
   tab3(tab);
   debug_inicio_no(no);
   if (no == NULL) {
-    cerr << endl;
+    cout << endl;
     return;
   }
-  if (no->filhos.size() > 0) cerr << endl;
+  if (no->filhos.size() > 0) cout << endl;
   for (int i = 0; i < no->filhos.size(); ++i) {
     debug_no_tab3(no->filhos[i], tab+1);
   }
   if (no->filhos.size() > 0) tab3(tab);
-  cerr << "]" << endl;
+  cout << "]" << endl;
 }
 
 void No_arv_parse::debug_no(No_arv_parse *no) {

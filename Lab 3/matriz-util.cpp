@@ -22,7 +22,7 @@ vector<vector<string> > matriz_de_arquivo(ifstream &arq, char delim_lin, char de
     vector<string> vec_linha = vetor_de_uma_linha(linha, delim_col);
     mat.push_back(vec_linha);
     /*    if (mat.size() > 1 && (mat[0].size() != mat[mat.size()-1].size())){
-      cerr << "matriz nao retangular(" << mat[0].size() << "," << mat[mat.size()-1].size() << ")" <<endl; 
+      cout << "matriz nao retangular(" << mat[0].size() << "," << mat[mat.size()-1].size() << ")" <<endl; 
       }*/
   }
   return mat;
@@ -30,10 +30,10 @@ vector<vector<string> > matriz_de_arquivo(ifstream &arq, char delim_lin, char de
 
 void debug_mat(vector<vector<string> > mat) {
   for (int l = 0; l < mat.size(); ++l){ 
-    cerr << mat[l].size() << "(";
+    cout << mat[l].size() << "(";
     for (int c = 0; c < mat[l].size();++c){
-      cerr <<mat[l][c] << ":";
+      cout <<mat[l][c] << ":";
     }
-    cerr << endl;
+    cout << endl;
   }
 }

@@ -8,11 +8,11 @@
 using namespace std;
 
 void Regra::debug() {
-  cerr << "Regra:" << esq << "->[" << dir.size() << "]->";
+  cout << "Regra:" << esq << "->[" << dir.size() << "]->";
   for (int i = 0 ; i < dir.size(); ++i) {
-    cerr << dir[i] << ":";
+    cout << dir[i] << ":";
   }
-  cerr << endl;
+  cout << endl;
 }
 
 Gramatica::Gramatica(ifstream &arq_gramatica) {
@@ -20,9 +20,9 @@ Gramatica::Gramatica(ifstream &arq_gramatica) {
     if (mat[mat.size()-1].size() == 1) mat.pop_back(); //remove ultima linha vazia.
     //    debug_mat(mat);
     for (int i = 0; i < mat.size(); ++i) {
-      //      cerr << "Gramatica("<< i << ":" << mat[i].size() << ":" << mat[i][0] << ")" << endl;
+      //      cout << "Gramatica("<< i << ":" << mat[i].size() << ":" << mat[i][0] << ")" << endl;
       if (mat[i].size() < 2) {
-        cerr << "Erro leitura gramatica 1:"<< i << ":" << mat[i].size() << ":" << mat[i][0] << ":" << endl;
+        cout << "Erro leitura gramatica 1:"<< i << ":" << mat[i].size() << ":" << mat[i][0] << ":" << endl;
       } else {
         Regra r;
         r.esq = mat[i][0];
@@ -39,10 +39,10 @@ Gramatica::Gramatica(ifstream &arq_gramatica) {
 
 void Gramatica::debug() {
   for (int r = 0; r < R.size(); ++r) {
-    cerr << R[r].esq << "->";
+    cout << R[r].esq << "->";
     for (int j = 0; j < R[r].dir.size(); ++j){
-      cerr << ":" << R[r].dir[j];
+      cout << ":" << R[r].dir[j];
     }
-    cerr << endl;
+    cout << endl;
   }
 }

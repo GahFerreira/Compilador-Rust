@@ -19,15 +19,15 @@ void Transicao::inicializa(string tok){
     tipo = 0; //vazio
   } else if (tok[0] == 's') {
     tipo = 1; //shift
-    //      cerr << "convertendo:" << tok.substr(1) << endl;
+    //      cout << "convertendo:" << tok.substr(1) << endl;
     prox_estado = meu_stoi(tok.substr(1));
   } else if (isdigit(tok[0])) {
     tipo = 2; // goto
-    //      cerr << "convertendo:" << tok << endl;
+    //      cout << "convertendo:" << tok << endl;
     prox_estado = meu_stoi(tok);
   } else if (tok[0] == 'r') {// == r
     tipo = 3; //reducao
-    //      cerr << "convertendo:" << tok.substr(1) << endl;
+    //      cout << "convertendo:" << tok.substr(1) << endl;
     reducao = meu_stoi(tok.substr(1));
   } else if (tok[0] == 'a') {
     tipo = 4; //aceita
@@ -85,34 +85,34 @@ Tabela_LR1::Tabela_LR1(ifstream &arq_tabela_lr1) {
     if (mat[lin].size() >= 2) {
       int est = meu_stoi(mat[lin][0]);//Ex. ("0", "NUM", "s2")
       string simbolo = mat[lin][1]; // simbolo = "NUM"
-      cerr << est << " : " << simbolo << " -> " << Transicao(mat[lin][2]).impressao() << endl;
+      cout << est << " : " << simbolo << " -> " << Transicao(mat[lin][2]).impressao() << endl;
       Tab[est][simbolo] = Transicao(mat[lin][2]); // Transicao("s2")
     }
   }
 }
 
 void Tabela_LR1::debug() {
-  cerr << "Tabela(" << Tab.size() << ")" << endl;
+  cout << "Tabela(" << Tab.size() << ")" << endl;
   for (int i = 0; i < Tab.size(); ++i) {
     for (map<string,Transicao>::iterator it = Tab[i].begin(); it != Tab[i].end(); ++it) {
       string simbolo = it->first;
       Transicao t = it->second;
       int tipo = t.tipo;
-      cerr << i << " ";
-      cerr << simbolo << " : ";
-      cerr << (tipo == 0 ? "ZERO" :
+      cout << i << " ";
+      cout << simbolo << " : ";
+      cout << (tipo == 0 ? "ZERO" :
 	       (tipo == 1 ? "shift" :
 		(tipo == 2 ? "goto" :
 		 (tipo == 3 ? "reduce" :
 		  (tipo == 4 ? "accept" :
 		   (tipo == 5 ? "LR2" : "INVALIDO"))))));
       if (tipo == 1 || tipo == 2) {//shift e goto
-        cerr << " " << t.prox_estado;
+        cout << " " << t.prox_estado;
       } else if (tipo == 3) {
-        cerr << " " << t.reducao;
+        cout << " " << t.reducao;
       }
-      cerr << ";";
-      cerr << endl;
+      cout << ";";
+      cout << endl;
     }
   }
 }
